@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Hidden landing pages (Founder Associate, Business Strategy, Consulting
+# Landing, Venture) are used for targeted job applications and LinkedIn
+# outreach only — intentionally excluded from search indexing and from
+# sitemap.xml, per the project's Website Architecture doc.
+Disallow: /founder-associate.html
+Disallow: /business-strategy.html
+Disallow: /consulting-landing.html
+Disallow: /venture.html
+
+Sitemap: https://www.kianakazemi.com/sitemap.xml

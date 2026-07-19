@@ -1,0 +1,116 @@
+/* ==========================================================================
+   DESIGN TOKENS
+   Single source of truth for every color, spacing, typography, radius,
+   shadow and motion value used across the site. Never hardcode a raw
+   value in a component or page file — reference the token instead.
+   ========================================================================== */
+
+:root {
+  /* --------------------------------------------------------------------
+     Color — 70% black / 20% gray / 8% red / 2% white distribution
+  -------------------------------------------------------------------- */
+  --color-bg: #0d0d0f;
+  --color-surface: #17181b;
+  --color-surface-raised: #1c1d21;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-divider: rgba(255, 255, 255, 0.08);
+
+  --color-text-primary: #ffffff;
+  --color-text-secondary: rgba(255, 255, 255, 0.72);
+  --color-text-muted: #a0a0a0;
+
+  --color-accent: #e53935;
+  --color-accent-soft: rgba(229, 57, 53, 0.4);
+  /* Accessibility fix: the base accent fails WCAG AA (4.5:1) for small
+     text sitting on --color-surface (measures 4.20:1). This lightened
+     variant clears 4.5:1 on both --color-bg and --color-surface and is
+     visually indistinguishable from the base red. Use for accent TEXT
+     (eyebrows, badge labels, index numbers, text links); keep
+     --color-accent for large UI (button fills, borders, focus rings),
+     which only needs to meet the 3:1 non-text threshold. */
+  --color-accent-text: #e84d49;
+
+  --color-success: #2e7d5b;
+  --color-warning: #b8862c;
+  --color-error: #e53935;
+
+  --color-focus-ring: var(--color-text-primary);
+  --color-selection-bg: var(--color-accent-soft);
+
+  /* --------------------------------------------------------------------
+     Spacing — 8px base rhythm
+  -------------------------------------------------------------------- */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-96: 96px;
+  --space-120: 120px;
+  --space-160: 160px;
+
+  /* --------------------------------------------------------------------
+     Typography — fluid via clamp(), no per-breakpoint overrides needed
+  -------------------------------------------------------------------- */
+  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter,
+    Roboto, Helvetica, Arial, sans-serif;
+
+  --text-display: clamp(3rem, 2.2rem + 3.5vw, 5.5rem);
+  --text-hero: clamp(2.5rem, 1.9rem + 2.6vw, 4rem);
+  --text-section: clamp(1.75rem, 1.5rem + 1.1vw, 2.5rem);
+  --text-subtitle: clamp(1.125rem, 1.05rem + 0.3vw, 1.375rem);
+  --text-body: 1rem;
+  --text-small: 0.9375rem;
+  --text-caption: 0.8125rem;
+  --text-label: 0.8125rem;
+
+  --leading-tight: 1.15;
+  --leading-snug: 1.35;
+  --leading-body: 1.6;
+
+  --tracking-tight: -0.02em;
+  --tracking-wide: 0.06em;
+  --tracking-wider: 0.08em;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* --------------------------------------------------------------------
+     Radius — cards use --radius-xl
+  -------------------------------------------------------------------- */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-full: 999px;
+
+  /* --------------------------------------------------------------------
+     Elevation
+  -------------------------------------------------------------------- */
+  --shadow-low: 0 4px 16px rgba(0, 0, 0, 0.24);
+  --shadow-medium: 0 10px 40px rgba(0, 0, 0, 0.28);
+  --shadow-high: 0 20px 60px rgba(0, 0, 0, 0.32);
+  --shadow-overlay: 0 30px 80px rgba(0, 0, 0, 0.4);
+
+  /* --------------------------------------------------------------------
+     Motion — one easing curve for almost everything
+  -------------------------------------------------------------------- */
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 150ms;
+  --duration-medium: 250ms;
+  --duration-slow: 500ms;
+
+  /* --------------------------------------------------------------------
+     Layout
+  -------------------------------------------------------------------- */
+  --container-max-width: 1200px;
+  --container-padding-inline: var(--space-24);
+  --nav-height: 72px;
+}

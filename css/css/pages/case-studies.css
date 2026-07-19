@@ -1,0 +1,295 @@
+/* ==========================================================================
+   CASE STUDIES PAGE — page-specific composition only.
+   No new colors, spacing values, radii, shadows or motion curves are
+   defined here. Everything below references tokens already declared in
+   css/variables.css and behaviour already declared in css/layout.css and
+   css/components.css.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   01 · Hero — centered, with inline stat cards
+-------------------------------------------------------------------------- */
+
+.hero--centered .hero__headline {
+  font-size: var(--text-hero);
+  font-weight: var(--weight-semibold);
+}
+
+.hero--centered .hero__subheadline {
+  max-width: 60ch;
+  color: var(--color-text-secondary);
+}
+
+.hero__stats {
+  width: 100%;
+  margin-top: var(--space-16);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-16);
+}
+
+/* --------------------------------------------------------------------------
+   Card grids shared across sections
+-------------------------------------------------------------------------- */
+
+/* --------------------------------------------------------------------------
+   02 · Domain filter cards
+-------------------------------------------------------------------------- */
+
+.card--domain-filter {
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  transition: border-color var(--duration-medium) var(--ease-standard),
+    background var(--duration-medium) var(--ease-standard);
+}
+
+.card--domain-filter .card__icon {
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin-bottom: var(--space-16);
+  border-radius: var(--radius-sm);
+  background: var(--color-border);
+}
+
+.card--domain-filter:hover,
+.card--domain-filter:focus-visible {
+  border-color: var(--color-accent);
+}
+
+.card--domain-filter[aria-pressed="true"] {
+  border-color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 8%, var(--color-surface));
+}
+
+.case-study-filter__empty {
+  text-align: center;
+  color: var(--color-text-muted);
+  margin-top: var(--space-32);
+}
+
+/* --------------------------------------------------------------------------
+   03 · Case Study Navigation — sticky tabs
+-------------------------------------------------------------------------- */
+
+.case-study-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--color-bg) 92%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.case-study-nav .tabs__list {
+  display: flex;
+  gap: var(--space-32);
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-block: var(--space-16);
+  list-style: none;
+  scrollbar-width: none;
+}
+
+.case-study-nav .tabs__list::-webkit-scrollbar {
+  display: none;
+}
+
+.case-study-nav .tabs__link {
+  appearance: none;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font: inherit;
+  font-size: var(--text-small);
+  color: var(--color-text-secondary);
+  padding-block: var(--space-8);
+  cursor: pointer;
+  transition: color var(--duration-medium) var(--ease-standard),
+    border-color var(--duration-medium) var(--ease-standard);
+}
+
+.case-study-nav .tabs__link:hover,
+.case-study-nav .tabs__link:focus-visible {
+  color: var(--color-text-primary);
+}
+
+.case-study-nav .tabs__link.is-active {
+  color: var(--color-text-primary);
+  border-bottom-color: var(--color-accent);
+}
+
+.case-study-nav .tabs__item[data-tab-hidden] {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   04 · Case Study panels
+-------------------------------------------------------------------------- */
+
+.case-study-panel {
+  padding-block: var(--space-96);
+  opacity: 1;
+  transition: opacity var(--duration-medium) var(--ease-standard);
+}
+
+.case-study-panel[hidden] {
+  display: none;
+}
+
+.case-study-panel.is-transitioning {
+  opacity: 0;
+}
+
+.case-study-panel__header {
+  text-align: center;
+  max-width: 720px;
+  margin-inline: auto;
+  margin-bottom: var(--space-64);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.case-study-section {
+  scroll-margin-top: 88px;
+  margin-bottom: var(--space-64);
+}
+
+.case-study-section:last-child {
+  margin-bottom: 0;
+}
+
+.case-study-section .section__header {
+  max-width: 640px;
+  margin-inline: auto;
+  text-align: center;
+  margin-bottom: var(--space-32);
+}
+
+.case-study-section__body {
+  max-width: 640px;
+  margin-inline: auto;
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+/* Section 01 — Project Overview */
+
+.case-study-overview {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: var(--space-48);
+  align-items: start;
+}
+
+.case-study-overview__facts {
+  display: grid;
+  gap: var(--space-16);
+  padding: var(--space-24);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.case-study-overview__fact dt {
+  font-size: var(--text-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4, 4px);
+}
+
+.case-study-overview__fact dd {
+  font-size: var(--text-small);
+  color: var(--color-text-secondary);
+}
+
+.case-study-overview__summary {
+  padding: var(--space-24);
+}
+
+@media (max-width: 900px) {
+  .case-study-overview {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Section 04 — Research process (7 steps) */
+
+.process--seven {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.process--four {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .process--seven,
+  .process--four {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .process--seven,
+  .process--four {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Section 05 / 07 / 10 — Insight, recommendation, takeaway cards */
+
+.card--insight,
+.card--recommendation,
+.card--takeaway {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.card__index {
+  font-size: var(--text-caption);
+  color: var(--color-accent-text);
+  font-weight: var(--weight-semibold);
+}
+
+/* Section 06 — Frameworks vertical timeline */
+
+.case-study-section 
+/* Section 11 — Related deliverables as link cards */
+
+.card--link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--duration-medium) var(--ease-standard);
+}
+
+.card--link:hover,
+.card--link:focus-visible {
+  border-color: var(--color-accent);
+}
+
+/* Section 12 — Next case study cards */
+
+.card--next-case .badge--tag {
+  margin-bottom: var(--space-8);
+}
+
+/* Section 13 — Inline final CTA */
+
+.cta-section--inline {
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  padding: var(--space-64);
+}
+

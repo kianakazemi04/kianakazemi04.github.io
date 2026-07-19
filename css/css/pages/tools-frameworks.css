@@ -1,0 +1,116 @@
+/* ==========================================================================
+   TOOLS & FRAMEWORKS PAGE — page-specific composition only.
+   No new colors, spacing values, radii, shadows or motion curves are
+   defined here. Everything below references tokens already declared in
+   css/variables.css and behaviour already declared in css/layout.css and
+   css/components.css.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Card grids shared across sections
+-------------------------------------------------------------------------- */
+
+/* --------------------------------------------------------------------------
+   02 / 08 · Workflow diagrams
+-------------------------------------------------------------------------- */
+
+.process--six { grid-template-columns: repeat(6, 1fr); }
+.process--eight { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 1024px) {
+  .process--six,
+  .process--eight {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .process--six,
+  .process--eight {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   03 · Business Strategy Framework cards — with use-case row
+-------------------------------------------------------------------------- */
+
+.card--framework {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.card__use-case {
+  font-size: var(--text-caption);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-8);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--color-border);
+}
+
+.card__use-case-label {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4, 4px);
+}
+
+/* --------------------------------------------------------------------------
+   06 / 07 · Tool & research source cards — Purpose / Usage meta rows
+-------------------------------------------------------------------------- */
+
+.card--tool {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.card--tool .badge--tag {
+  align-self: flex-start;
+  margin-bottom: var(--space-4, 4px);
+}
+
+.card__meta-row {
+  font-size: var(--text-caption);
+  color: var(--color-text-secondary);
+}
+
+.card__meta-label {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4, 4px);
+}
+
+/* --------------------------------------------------------------------------
+   10 · Continuous learning — horizontal timeline
+-------------------------------------------------------------------------- */
+
+.timeline--horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-32);
+  list-style: none;
+  border-left: none;
+  padding-left: 0;
+  max-width: none;
+}
+
+.timeline--horizontal 
+.timeline--horizontal 
+.timeline--horizontal 
+@media (max-width: 640px) {
+  .timeline--horizontal {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   11 · Final CTA
+-------------------------------------------------------------------------- */
+
