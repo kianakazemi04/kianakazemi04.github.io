@@ -1,0 +1,179 @@
+/* ==========================================================================
+   PORTFOLIO PAGE — page-specific composition only.
+   No new colors, spacing values, radii, shadows or motion curves are
+   defined here. Everything below references tokens already declared in
+   css/variables.css and behaviour already declared in css/layout.css and
+   css/components.css.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   01 · Hero — centered, with inline stat cards
+-------------------------------------------------------------------------- */
+
+.hero--centered .hero__headline {
+  font-size: var(--text-hero);
+  font-weight: var(--weight-semibold);
+}
+
+.hero--centered .hero__subheadline {
+  max-width: 60ch;
+  color: var(--color-text-secondary);
+}
+
+.hero__stats {
+  width: 100%;
+  margin-top: var(--space-16);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-16);
+}
+
+/* --------------------------------------------------------------------------
+   02 · Portfolio Navigation — sticky tabs
+-------------------------------------------------------------------------- */
+
+.portfolio-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--color-bg) 92%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.portfolio-nav .tabs__list {
+  display: flex;
+  gap: var(--space-32);
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-block: var(--space-16);
+  list-style: none;
+  scrollbar-width: none;
+}
+
+.portfolio-nav .tabs__list::-webkit-scrollbar {
+  display: none;
+}
+
+.portfolio-nav .tabs__link {
+  font-size: var(--text-small);
+  color: var(--color-text-secondary);
+  padding-block: var(--space-8);
+  border-bottom: 2px solid transparent;
+  transition: color var(--duration-medium) var(--ease-standard),
+    border-color var(--duration-medium) var(--ease-standard);
+}
+
+.portfolio-nav .tabs__link:hover,
+.portfolio-nav .tabs__link:focus-visible {
+  color: var(--color-text-primary);
+}
+
+.portfolio-nav .tabs__link.is-active {
+  color: var(--color-text-primary);
+  border-bottom-color: var(--color-accent);
+}
+
+/* --------------------------------------------------------------------------
+   03 · Category sections
+-------------------------------------------------------------------------- */
+
+.portfolio-category {
+  scroll-margin-top: 88px;
+}
+
+.portfolio-category__header {
+  text-align: center;
+  max-width: 720px;
+  margin-inline: auto;
+  margin-bottom: var(--space-64);
+}
+
+.portfolio-category + .portfolio-category {
+  border-top: 1px solid var(--color-border);
+}
+
+.portfolio-subsection {
+  scroll-margin-top: 88px;
+  margin-bottom: var(--space-96);
+}
+
+.portfolio-subsection:last-child {
+  margin-bottom: 0;
+}
+
+.portfolio-subsection .section__header {
+  max-width: 640px;
+  margin-inline: auto;
+  text-align: center;
+  margin-bottom: var(--space-48);
+}
+
+.portfolio-subsection__body {
+  max-width: 640px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   Card grids shared across subsections
+-------------------------------------------------------------------------- */
+
+/* --------------------------------------------------------------------------
+   Section C · Process (workflow)
+-------------------------------------------------------------------------- */
+
+/* --------------------------------------------------------------------------
+   Section E · Portfolio showcase cards
+-------------------------------------------------------------------------- */
+
+.card--portfolio .card__media {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-16);
+}
+
+.card--portfolio .badge--tag {
+  margin-bottom: var(--space-8);
+}
+
+.card--portfolio .card__meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin: var(--space-16) 0;
+}
+
+.card--portfolio .card__meta-row dt {
+  font-size: var(--text-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+.card--portfolio .card__meta-row dd {
+  font-size: var(--text-small);
+  color: var(--color-text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Section I · Inline category CTA
+-------------------------------------------------------------------------- */
+
+.cta-section--inline {
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  padding: var(--space-64);
+}
+
+/* --------------------------------------------------------------------------
+   04 · Philosophy
+-------------------------------------------------------------------------- */
+

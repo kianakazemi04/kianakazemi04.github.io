@@ -1,0 +1,226 @@
+/* ==========================================================================
+   RISK MANAGEMENT PAGE — page-specific composition only.
+   No new colors, spacing values, radii, shadows or motion curves are
+   defined here. Everything below references tokens already declared in
+   css/variables.css and behaviour already declared in css/layout.css and
+   css/components.css. The four risk-zone colors (low/medium/high/critical)
+   are semantic status colors and map to the existing --color-success,
+   --color-warning and --color-error tokens rather than introducing new hues.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Card grids shared across sections
+-------------------------------------------------------------------------- */
+
+/* --------------------------------------------------------------------------
+   03 · Business Risk Categories — icon + description card
+-------------------------------------------------------------------------- */
+
+.card--problem .card__icon {
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin-bottom: var(--space-16);
+  border-radius: var(--radius-sm);
+  background: var(--color-border);
+}
+
+/* --------------------------------------------------------------------------
+   04 · Risk Assessment Framework — workflow
+-------------------------------------------------------------------------- */
+
+/* --------------------------------------------------------------------------
+   05 · Interactive Risk Matrix
+-------------------------------------------------------------------------- */
+
+.risk-matrix-wrapper {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.risk-matrix {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr auto;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.risk-matrix__axis {
+  font-size: var(--text-caption);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.risk-matrix__axis--y {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-align: center;
+}
+
+.risk-matrix__axis--x {
+  grid-column: 2;
+  text-align: center;
+}
+
+.risk-matrix__table {
+  grid-column: 2;
+  grid-row: 1;
+  border-collapse: separate;
+  border-spacing: var(--space-8);
+  width: 100%;
+}
+
+.risk-matrix__corner {
+  width: 0;
+}
+
+.risk-matrix__col-label,
+.risk-matrix__row-label {
+  font-size: var(--text-caption);
+  color: var(--color-text-muted);
+  font-weight: var(--weight-regular, 400);
+  white-space: nowrap;
+}
+
+.risk-matrix__row-label {
+  text-align: right;
+  padding-right: var(--space-8);
+}
+
+.risk-matrix__cell {
+  text-align: center;
+  padding: 0;
+}
+
+.risk-matrix__point {
+  width: 100%;
+  aspect-ratio: 1;
+  min-width: 32px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: transform var(--duration-medium) var(--ease-standard),
+    opacity var(--duration-medium) var(--ease-standard);
+  opacity: 0.85;
+}
+
+.risk-matrix__point:hover,
+.risk-matrix__point:focus-visible {
+  opacity: 1;
+  transform: scale(1.08);
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: 2px;
+}
+
+.risk-matrix__point--low { background: var(--color-success); }
+.risk-matrix__point--medium { background: var(--color-warning); }
+.risk-matrix__point--high { background: color-mix(in srgb, var(--color-accent) 70%, var(--color-warning)); }
+.risk-matrix__point--critical { background: var(--color-error); }
+
+.risk-matrix__legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-24);
+  margin-top: var(--space-32);
+}
+
+.risk-matrix__legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  font-size: var(--text-caption);
+  color: var(--color-text-secondary);
+}
+
+.risk-matrix__swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  display: inline-block;
+}
+
+.risk-matrix__swatch--low { background: var(--color-success); }
+.risk-matrix__swatch--medium { background: var(--color-warning); }
+.risk-matrix__swatch--high { background: color-mix(in srgb, var(--color-accent) 70%, var(--color-warning)); }
+.risk-matrix__swatch--critical { background: var(--color-error); }
+
+.risk-matrix__detail {
+  margin-top: var(--space-32);
+  padding: var(--space-24);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.risk-matrix__detail-placeholder,
+.risk-matrix__detail-body {
+  color: var(--color-text-secondary);
+  font-size: var(--text-small);
+}
+
+.risk-matrix__detail-zone {
+  display: block;
+  font-size: var(--text-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-8);
+}
+
+@media (max-width: 640px) {
+  .risk-matrix {
+    grid-template-columns: 1fr;
+  }
+  .risk-matrix__axis--y {
+    writing-mode: horizontal-tb;
+    transform: none;
+  }
+  .risk-matrix__table {
+    grid-column: 1;
+  }
+  .risk-matrix__axis--x {
+    grid-column: 1;
+  }
+  .risk-matrix__row-label {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   07 · Sample assessment cards
+-------------------------------------------------------------------------- */
+
+.card--portfolio .badge--tag {
+  margin-bottom: var(--space-8);
+}
+
+.card--portfolio .card__meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin: var(--space-16) 0;
+}
+
+.card--portfolio .card__meta-row dt {
+  font-size: var(--text-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+.card--portfolio .card__meta-row dd {
+  font-size: var(--text-small);
+  color: var(--color-text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   12 · Final CTA
+-------------------------------------------------------------------------- */
+

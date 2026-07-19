@@ -1,0 +1,92 @@
+/* ==========================================================================
+   CONTACT PAGE — page-specific composition only.
+   No new colors, spacing values, radii, shadows or motion curves are
+   defined here. Everything below references tokens already declared in
+   css/variables.css and behaviour already declared in css/layout.css and
+   css/components.css.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   01 · Hero — centered
+-------------------------------------------------------------------------- */
+
+.hero--centered .hero__headline {
+  font-size: var(--text-hero);
+  font-weight: var(--weight-semibold);
+}
+
+.hero--centered .hero__subheadline {
+  color: var(--color-text-secondary);
+  max-width: 52ch;
+}
+
+.anchor-target {
+  display: block;
+  position: relative;
+  scroll-margin-top: 88px;
+}
+
+/* --------------------------------------------------------------------------
+   02 · Contact method cards
+-------------------------------------------------------------------------- */
+
+.card--contact-method {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--duration-medium) var(--ease-standard),
+    transform var(--duration-medium) var(--ease-standard);
+}
+
+.card--contact-method:hover,
+.card--contact-method:focus-visible {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.card--contact-method .card__icon {
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin-bottom: var(--space-8);
+  border-radius: var(--radius-sm);
+  background: var(--color-border);
+}
+
+.card--contact-method .card__description {
+  color: var(--color-text-secondary);
+  font-size: var(--text-small);
+}
+
+.card--contact-method .btn--text {
+  margin-top: auto;
+  padding-top: var(--space-8);
+}
+
+/* --------------------------------------------------------------------------
+   03 · Current Availability
+-------------------------------------------------------------------------- */
+
+.hero__badge-list--centered {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-12);
+  list-style: none;
+  margin-top: var(--space-24);
+}
+
+.hero__badge-list--centered li {
+  font-size: var(--text-small);
+  color: var(--color-text-secondary);
+  padding: var(--space-8) var(--space-16);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+/* --------------------------------------------------------------------------
+   06 · Final CTA
+-------------------------------------------------------------------------- */
+

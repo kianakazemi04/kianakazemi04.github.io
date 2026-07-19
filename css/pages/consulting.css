@@ -1,0 +1,62 @@
+/* ==========================================================================
+   CONSULTING PAGE — page-specific composition only.
+   No new colors, spacing values, radii, shadows or motion curves are
+   defined here. Everything below references tokens already declared in
+   css/variables.css and behaviour already declared in css/layout.css and
+   css/components.css.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   01 · Hero — landing variant (Consulting, Risk Management, future
+   landing pages share this variant per the Hero Components spec)
+-------------------------------------------------------------------------- */
+
+/* --------------------------------------------------------------------------
+   Card grids shared across sections
+-------------------------------------------------------------------------- */
+
+/* --------------------------------------------------------------------------
+   03 · Problems I Help Solve — icon + description card
+-------------------------------------------------------------------------- */
+
+.card--problem .card__icon {
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin-bottom: var(--space-16);
+  border-radius: var(--radius-sm);
+  background: var(--color-border);
+}
+
+/* --------------------------------------------------------------------------
+   05 · Consulting Process — workflow
+-------------------------------------------------------------------------- */
+
+/* --------------------------------------------------------------------------
+   07 · Engagement Models — meta-list cards
+-------------------------------------------------------------------------- */
+
+.card--engagement .card__meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  margin-top: var(--space-16);
+}
+
+.card--engagement .card__meta-row dt {
+  font-size: var(--text-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4, 4px);
+}
+
+.card--engagement .card__meta-row dd {
+  font-size: var(--text-small);
+  color: var(--color-text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   11 · Final CTA
+-------------------------------------------------------------------------- */
+
